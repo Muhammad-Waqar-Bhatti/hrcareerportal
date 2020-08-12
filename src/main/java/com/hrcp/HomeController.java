@@ -1,4 +1,4 @@
-package com.muet.edu.pk.hrcareeportal;
+package com.hrcp;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
