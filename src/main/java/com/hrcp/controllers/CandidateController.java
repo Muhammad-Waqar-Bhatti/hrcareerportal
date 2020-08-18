@@ -3,6 +3,8 @@ package com.hrcp.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +30,10 @@ public class CandidateController {
 	@GetMapping("/profile")
 	public String showProfile(ModelMap model) {
 		//String email="amjad4dahri@gmail.com";
-		String email="ali27@gmail.com";
-		Candidate candidate = candidateService.getCandidateByEmail(email);
+		 Authentication email = SecurityContextHolder.getContext().getAuthentication();
+	      String name = email.getName(); //get logged in username
+System.out.println(name);
+		Candidate candidate = candidateService.getCandidateByEmail(name);
 		model.addAttribute("Candidate",  candidate);
 		return "candidate/profile";
 	}

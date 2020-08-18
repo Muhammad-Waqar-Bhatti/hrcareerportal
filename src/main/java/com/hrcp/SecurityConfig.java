@@ -1,5 +1,6 @@
 package com.hrcp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -9,12 +10,17 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import com.hrcp.serviceImpl.UserDetailsServiceImpl;
+import com.hrcp.serviceimpl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig  extends WebSecurityConfigurerAdapter{
+	
+	@Autowired
+	private AuthenticationSuccessHandler authenticationSuccessHandler;
+
 	
 	@Bean
 	public UserDetailsService userDetailsService() {
@@ -42,15 +48,22 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/").permitAll()
+            .antMatchers("/","/dist/css/*.css",
+            		"/dist/img/*.*",
+            		"/dist/img/jobs/*.*",
+            		"/plugins/bootstrap/css/bootstrap.min.css",
+            		"/plugins/jquery/jquery.js",
+            		"/plugins/bootstrap/js/bootstrap.min.js",
+            		"/plugins/font-awesome-4.7.0/css/font-awesome.min.css").permitAll()
             .antMatchers("/candidate/**").hasAnyAuthority("CANDIDATE")
             .antMatchers("/hr/**").hasAnyAuthority("HR")
             .anyRequest().authenticated()
             .and()
-            .formLogin().permitAll()
+            .formLogin().loginPage("/login").successHandler(authenticationSuccessHandler).permitAll()
             .and()
             .logout().permitAll()
             .and()
+            .csrf().disable()
             .exceptionHandling().accessDeniedPage("/403")
             ;
     }

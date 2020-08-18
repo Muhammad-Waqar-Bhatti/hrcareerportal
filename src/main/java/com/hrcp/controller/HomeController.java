@@ -7,20 +7,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 	
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String home() {
 		return "home";
 	}
 	
-	@GetMapping("/candidate")
-	@ResponseBody
-	public String cadidateDashboard() {
-		return "Welcom to candidate";
+	@GetMapping("/login")
+	public String login(){
+		return "login";
 	}
-
-	@GetMapping("/hr")
-	@ResponseBody
-	public String HRDashboard() {
-		return "Welcom to candidate";
-	}
+	
+	
 }

@@ -1,4 +1,4 @@
-package com.hrcp.serviceImpl;
+package com.hrcp.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
