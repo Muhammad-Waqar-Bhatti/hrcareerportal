@@ -1,5 +1,4 @@
-# HR Career Portal 
-## Recruiting Application
+# HR Career Portal ( Recruiting Application )
 
 ## Technologies
 -java
