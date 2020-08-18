@@ -11,7 +11,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="${contextPath}/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${contextPath}/plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/fe6afb75cf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${contextPath}/dist/css/style.css">
     <title>HR Career Portal</title>
 </head>
