@@ -48,6 +48,17 @@ public class Candidate {
 	
 	@Column(name="can_gender")
 	private String gender;
+	
+	@Column(name="can_field")
+	private String field;
+
+	public String getField() {
+		return field;
+	}
+
+	public void setField(String field) {
+		this.field = field;
+	}
 
 	public String getGender() {
 		return gender;

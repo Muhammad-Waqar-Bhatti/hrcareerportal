@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Candidates</a>
@@ -59,7 +59,7 @@
                             <a class="nav-link" href="signup.html"><i class="fa fa-key mr-1"></i>Signup</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html"><i class="fa fa-external-link-square mr-1"></i>Login</a>
+                            <a class="nav-link" href="/login"><i class="fa fa-external-link-square mr-1"></i>Login</a>
                         </li>
                     </ul>
 

@@ -29,17 +29,18 @@ public class CandidateController {
 	
 	@GetMapping("/profile")
 	public String showProfile(ModelMap model) {
-		//String email="amjad4dahri@gmail.com";
-		 Authentication email = SecurityContextHolder.getContext().getAuthentication();
-	      String name = email.getName(); //get logged in username
-System.out.println(name);
-		Candidate candidate = candidateService.getCandidateByEmail(name);
+		Authentication email = SecurityContextHolder.getContext().getAuthentication();
+	    Candidate candidate = candidateService.getCandidateByEmail(email.getName());
+		candidate.setEmail(email.getName());
 		model.addAttribute("Candidate",  candidate);
 		return "candidate/profile";
 	}
 	
 	@PostMapping("/add")
 	public String saveCandidate(Candidate candidate) {
+		Authentication email = SecurityContextHolder.getContext().getAuthentication();
+	    String name = email.getName(); //get logged in username
+	    candidate.setEmail(name);
 		candidateService.addCandidate(candidate);
 		return "candidate/candashboard";
 	}
@@ -48,12 +49,6 @@ System.out.println(name);
 	@PostMapping("/getCandidate")
 	public Optional<Candidate> getCandidate(Integer candidateId){
 		return candidateService.getCandidate(candidateId);
-	}
-	
-	
-	@GetMapping("/header")
-	public String heaer() {
-		return "includes/can_navigation";
 	}
 	
 }
