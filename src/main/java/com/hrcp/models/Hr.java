@@ -10,55 +10,44 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="hr")
+@Table(name="company")
 @Data
 public class Hr {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="hr_id")
-	private Integer hrId;
+	@Column(name="com_id")
+	private Integer comId;
 	
-	@Column(name="hr_fname")	
-	private String firstName;
+	@Column(name="com_name")	
+	private String comName;
 	
-	@Column(name="hr_lname")
-	private String lastName;
-	
-	@Column(name="hr_phone")
+	@Column(name="com_phone")
 	private String phone;
 	
-	@Column(name="hr_address")
+	@Column(name="com_address")
 	private String address;
 	
 	@Column(name="hr_email")
 	private String email;
 	
-	@Column(name="hr_company")
+	@Column(name="com_desc")
 	private String company;
 
-	public Integer getHrId() {
-		return hrId;
+	public Integer getComId() {
+		return comId;
 	}
 
-	public void setHrId(Integer hrId) {
-		this.hrId = hrId;
+	public void setComId(Integer comId) {
+		this.comId = comId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getComName() {
+		return comName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setComName(String comName) {
+		this.comName = comName;
 	}
 
 	public String getPhone() {
@@ -93,11 +82,4 @@ public class Hr {
 		this.company = company;
 	}
 
-	@Override
-	public String toString() {
-		return "Hr [hrId=" + hrId + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone
-				+ ", address=" + address + ", email=" + email + ", company=" + company + "]";
-	}
-	
-	
 }

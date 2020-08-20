@@ -516,3 +516,7 @@ job-post {
 .fa-clock:before {
     content: '\f017';
 }
+
+.fa-pencil:hover{
+	color: rgb(27,35,255) !important;
+}

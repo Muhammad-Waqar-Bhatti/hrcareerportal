@@ -15,4 +15,5 @@ public interface HrService {
 	void deleteHr(Integer hrId);
 	void updateHr(Hr hr);
 	void addHr(Hr hr);
+	Hr getHrByUsername(String username);
 }
