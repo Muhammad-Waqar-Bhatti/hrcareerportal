@@ -33,6 +33,9 @@ public class User {
 	
 	@Column(name="password")
 	private String password;
+	
+	
+
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -81,6 +84,8 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+
 	
 	
 }
